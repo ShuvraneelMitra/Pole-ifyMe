@@ -93,9 +93,10 @@ function App() {
           <div className='absolute top-[50%] left-[15%] flex items-center justify-center bg-[#e0bbe4] gap-8'>
             <input
               type="text"
+              placeholder="Enter your name here!"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
-              className='w-80 h-20 rounded-3xl text-center py-2 px-4 border-2 text-lg bg-white'
+              className='w-80 h-20 rounded-3xl text-center py-2 px-4 border-2 text-lg bg-white font-bold text-[25px]'
             />
             <button
               className="px-8 py-4 bg-gradient-to-br from-pink-300 via-pink-400 to-purple-600 text-white font-bold font-fredoka rounded-full shadow-lg
@@ -126,6 +127,9 @@ function App() {
             Which language should I make this for next?
             <Poll />
           </p>
+        </div>
+        <div className='absolute right-0 bottom-0 p-5 text-[20px] bg-lime-500 border-2 border-black font-fredoka'>
+          Release v1.0
         </div>
       </div>
     </div>
