@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import GermanFlag from '../assets/GermanFlag.png'; // Import SVGs (or use URLs)
+import GermanFlag from '../assets/GermanFlag.png';
 import MexicanFlag from '../assets/MexicanFlag.png';
 import VietnameseFlag from '../assets/VietnameseFlag.png';
 import DutchFlag from '../assets/DutchFlag.png';
@@ -52,33 +52,33 @@ export function Poll() {
             {["German", "Mexican", "Vietnamese", "Dutch"].map((language) => (
                 <div
                     key={language}
-                    className={`cursor-pointer p-3 rounded-lg ${selectedLanguage === language ? "bg-blue-500" : "bg-gray-300"
-                        } flex items-center gap-4`}
+                    className={`cursor-pointer p-3 rounded-lg flex items-center gap-4 transition-all duration-200 
+                        ${selectedLanguage === language
+                            ? "bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 shadow-lg scale-105 text-white"
+                            : "bg-gray-300 text-black hover:bg-gray-400 hover:scale-105"
+                        }`}
                     onClick={() => {
                         handleVote(language);
                         setSelectedLanguage(language);
                     }}
                 >
                     <img src={flagMap[language]} alt={`${language} flag`} className="w-16 h-auto m-2" />
-                    <p className={`text-center font-bold ${selectedLanguage === language ? "text-white" : "text-black"}`}>{language}</p>
-                    <p className={`text-center text-sm ${selectedLanguage === language ? "text-white" : "text-black"}`}>
-                        {totalVotes > 0
-                            ? `${calculatePercentage(language)}%`
-                            : "No votes yet"}
+                    <p className="text-center font-bold">{language}</p>
+                    <p className="text-center text-sm">
+                        {totalVotes > 0 ? `${calculatePercentage(language)}%` : "No votes yet"}
                     </p>
                 </div>
-            ))
-            }
+            ))}
             <div className="mt-6 text-center">
                 {selectedLanguage && (
-                    <p className="text-white font-bold">
+                    <p className="text-white font-bold text-lg">
                         You selected: <span className="underline">{selectedLanguage}</span>
                     </p>
                 )}
-                <p className="text-white mt-2">
+                <p className="text-white mt-2 text-lg">
                     Total votes: <span className="underline">{totalVotes}</span>
                 </p>
             </div>
-        </div >
+        </div>
     );
 }
