@@ -525,7 +525,7 @@ function App() {
             <div>
               <div className='absolute top-[66%] left-[15%] text-left text-[30px] font-fredoka
                               font-extrabold text-[#800080]'>
-                Your Pole-ified name is now:
+                Your new name is now:
               </div>
               <div className='absolute top-[76%] left-[15%] flex items-center justify-center
                             w-[66%] h-[16%] border-dashed border-4 border-red-300 p-4 rounded-xl bg-white
