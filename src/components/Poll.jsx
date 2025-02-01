@@ -11,7 +11,7 @@ const flagMap = {
     Dutch: DutchFlag,
 };
 
-export function Poll() {
+export function Poll({ selectedLanguage, setSelectedLanguage }) {
     const [votes, setVotes] = useState({
         German: 20,
         Mexican: 15,
@@ -20,7 +20,6 @@ export function Poll() {
     });
 
     const [totalVotes, setTotalVotes] = useState(52);
-    const [selectedLanguage, setSelectedLanguage] = useState("German");
 
     const handleVote = (language) => {
         const newVotes = { ...votes, [language]: votes[language] + 1 };
