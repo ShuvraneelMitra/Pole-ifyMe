@@ -3,6 +3,10 @@ import { Poll } from './components/Poll.jsx'
 import Interface from './components/interface.jsx'
 import { useState } from 'react';
 import PolishFlag from './assets/PolishFlag.webp';
+import GermanFlag from './assets/GermanFlag.webp';
+import DutchFlag from './assets/DutchFlag.webp';
+import MexicanFlag from './assets/MexicanFlag.webp';
+import VietnameseFlag from './assets/VietnameseFlag.webp';
 import Navbar from './components/Navbar.jsx';
 import generateContent from './fetchResult.js';
 import fs from 'fs';
@@ -455,6 +459,22 @@ function App() {
     ["Dutch", dutch_prompt]
   ]);
 
+  const FlagMap = new Map([
+    ["None", PolishFlag],
+    ["German", GermanFlag],
+    ["Mexican", MexicanFlag],
+    ["Vietnamese", VietnameseFlag],
+    ["Dutch", DutchFlag]
+  ]);
+
+  const LinkMap = new Map([
+    ["None", "https://www.youtube.com/watch?v=iaGrmVj9ZDI"],
+    ["German", "https://www.youtube.com/watch?v=nDxKA9pU4yc"],
+    ["Mexican", "https://www.youtube.com/watch?v=Fkk9DI-8el4"],
+    ["Vietnamese", "https://www.youtube.com/watch?v=z3g2GVOgJXg"],
+    ["Dutch", "https://www.youtube.com/shorts/eOUL3PVKmMw"]
+  ]);
+
   const buttonMap = new Map([
     ["None", "Pole-ify"],
     ["German", "Germanise"],
@@ -477,9 +497,9 @@ function App() {
         </div>
         <div className='relative w-[45%] h-3/4 bg-[#e0bbe4] mr-20 rounded-3xl shadow-[0px_40px_50px_rgba(0,0,0,0.7)]'>
           <Interface selectedLanguage={selectedLanguage} />
-          <a href="https://www.youtube.com/watch?v=iaGrmVj9ZDI">
+          <a href={LinkMap.get(selectedLanguage)}>
             <img
-              src={PolishFlag}
+              src={FlagMap.get(selectedLanguage)}
               className="absolute top-[30%] left-[42%] w-[120px] h-auto 
                         transition-transform duration-300 ease-in-out
                         active:scale-110 hover:scale-105 cursor-pointer"
@@ -527,7 +547,7 @@ function App() {
           Release v1.0
         </div>
       </div>
-    </div>
+    </div >
   )
 }
 
